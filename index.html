@@ -13,14 +13,8 @@ body {
     background: linear-gradient(135deg, #ffd6e0, #ffeef5);
 }
 
-.page {
-    display: none;
-    padding: 40px 20px;
-}
-
-.active {
-    display: block;
-}
+.page { display:none; padding:40px 20px; }
+.active { display:block; }
 
 button {
     padding: 12px 20px;
@@ -32,41 +26,45 @@ button {
     color: white;
     cursor: pointer;
 }
+button:hover { opacity:0.9; }
 
-button:hover {
-    opacity: 0.9;
+/* Gift grid */
+.grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px,1fr));
+    gap:12px;
+    max-width:420px;
+    margin:20px auto;
 }
 
-.letter-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 10px;
-    max-width: 400px;
-    margin: 20px auto;
+.box {
+    background:white;
+    border-radius:15px;
+    padding:18px;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-.message {
-    margin-top: 20px;
-    font-size: 18px;
-    background: white;
-    padding: 15px;
-    border-radius: 12px;
-    display: none;
+.msg {
+    margin-top:20px;
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    display:none;
+    font-size:18px;
 }
 
-.teddy {
-    max-width: 220px;
-    margin: 20px auto;
-}
-
+.teddy { max-width:220px; margin:20px auto; }
 .board {
-    background: white;
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background:white;
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:15px;
+    font-size:20px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 </style>
 </head>
@@ -76,48 +74,50 @@ button:hover {
 <div id="welcome" class="page active">
     <h1>Hey 🙂</h1>
 
-    <!-- Teddy Image -->
     <img class="teddy" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="teddy">
 
-    <!-- Board Text -->
     <div class="board">Welcome 💖</div>
 
-    <p>I made a small surprise for you ❤️<br>Click below if you're ready.</p>
+    <p>I made something small for you ❤️<br>Click below if you're ready.</p>
 
-    <button onclick="showPage('letters')">YES — show me</button>
+    <button onclick="showPage('gifts')">Open Gifts 🎁</button>
 </div>
 
-<!-- Letters Page -->
-<div id="letters" class="page">
-    <h2>Open the Letters 💌</h2>
-    <div class="letter-box">
-        <button onclick="showMessage(1)">Letter 1</button>
-        <button onclick="showMessage(2)">Letter 2</button>
-        <button onclick="showMessage(3)">Letter 3</button>
-        <button onclick="showMessage(4)">Letter 4</button>
-        <button onclick="showMessage(5)">Letter 5</button>
-        <button onclick="showMessage(6)">Letter 6</button>
-        <button onclick="showMessage(7)">Letter 7</button>
+<!-- Gifts Page -->
+<div id="gifts" class="page">
+    <h2>Open Your Gift Boxes 🎁</h2>
+
+    <div class="grid">
+        <div class="box" onclick="showMsg(1)">1</div>
+        <div class="box" onclick="showMsg(2)">2</div>
+        <div class="box" onclick="showMsg(3)">3</div>
+        <div class="box" onclick="showMsg(4)">4</div>
+        <div class="box" onclick="showMsg(5)">5</div>
+        <div class="box" onclick="showMsg(6)">6</div>
+        <div class="box" onclick="showMsg(7)">7</div>
+        <div class="box" onclick="showMsg(8)">8</div>
     </div>
 
-    <div id="msg1" class="message">Hi 🙂 I made this because you're special to me.</div>
-    <div id="msg2" class="message">You always bring positive vibes wherever you go.</div>
-    <div id="msg3" class="message">I still smile thinking about our fun moments together.</div>
-    <div id="msg4" class="message">Thank you for being kind and supportive.</div>
-    <div id="msg5" class="message">I hope we create many more memories ahead.</div>
-    <div id="msg6" class="message">Just a reminder — you're awesome 🙂</div>
-    <div id="msg7" class="message">Happy Valentine's Day ❤️</div>
+    <div id="m1" class="msg">Feb 7 — Rose Day 🌹<br>Wishing you a day full of smiles.</div>
+    <div id="m2" class="msg">Feb 8 — Propose Day 💌<br>You are truly special to me.</div>
+    <div id="m3" class="msg">Feb 9 — Chocolate Day 🍫<br>Life feels sweeter with you around.</div>
+    <div id="m4" class="msg">Feb 10 — Teddy Day 🧸<br>Sending warm hugs your way.</div>
+    <div id="m5" class="msg">Feb 11 — Promise Day 🤝<br>I promise to stay kind and true.</div>
+    <div id="m6" class="msg">Feb 12 — Hug Day 🤗<br>Here’s a virtual hug for you!</div>
+    <div id="m7" class="msg">Feb 13 — Special Wishes 💖<br>Wishing you happiness always.</div>
+    <div id="m8" class="msg">Feb 14 — Happy Valentine's Day ❤️<br>Hope your day is filled with smiles!</div>
+
 </div>
 
 <script>
-function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
 
-function showMessage(num) {
-    document.querySelectorAll('.message').forEach(m => m.style.display = 'none');
-    document.getElementById('msg' + num).style.display = 'block';
+function showMsg(n){
+    document.querySelectorAll('.msg').forEach(m=>m.style.display='none');
+    document.getElementById('m'+n).style.display='block';
 }
 </script>
 
