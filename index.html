@@ -53,6 +53,21 @@ button:hover {
     border-radius: 12px;
     display: none;
 }
+
+.teddy {
+    max-width: 220px;
+    margin: 20px auto;
+}
+
+.board {
+    background: white;
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
 </style>
 </head>
 <body>
@@ -60,7 +75,15 @@ button:hover {
 <!-- Welcome Page -->
 <div id="welcome" class="page active">
     <h1>Hey 🙂</h1>
+
+    <!-- Teddy Image -->
+    <img class="teddy" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="teddy">
+
+    <!-- Board Text -->
+    <div class="board">Welcome 💖</div>
+
     <p>I made a small surprise for you ❤️<br>Click below if you're ready.</p>
+
     <button onclick="showPage('letters')">YES — show me</button>
 </div>
 
@@ -100,3 +123,4 @@ function showMessage(num) {
 
 </body>
 </html>
+
