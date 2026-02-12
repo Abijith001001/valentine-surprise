@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Surprise</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ffd6e0, #ffeef5);
+}
+
+.page {
+    display: none;
+    padding: 40px 20px;
+}
+
+.active {
+    display: block;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: #ff4d6d;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.letter-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 18px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Welcome Page -->
+<div id="welcome" class="page active">
+    <h1>Hey 🙂</h1>
+    <p>I made a small surprise for you ❤️<br>Click below if you're ready.</p>
+    <button onclick="showPage('letters')">YES — show me</button>
+</div>
+
+<!-- Letters Page -->
+<div id="letters" class="page">
+    <h2>Open the Letters 💌</h2>
+    <div class="letter-box">
+        <button onclick="showMessage(1)">Letter 1</button>
+        <button onclick="showMessage(2)">Letter 2</button>
+        <button onclick="showMessage(3)">Letter 3</button>
+        <button onclick="showMessage(4)">Letter 4</button>
+        <button onclick="showMessage(5)">Letter 5</button>
+        <button onclick="showMessage(6)">Letter 6</button>
+        <button onclick="showMessage(7)">Letter 7</button>
+    </div>
+
+    <div id="msg1" class="message">Hi 🙂 I made this because you're special to me.</div>
+    <div id="msg2" class="message">You always bring positive vibes wherever you go.</div>
+    <div id="msg3" class="message">I still smile thinking about our fun moments together.</div>
+    <div id="msg4" class="message">Thank you for being kind and supportive.</div>
+    <div id="msg5" class="message">I hope we create many more memories ahead.</div>
+    <div id="msg6" class="message">Just a reminder — you're awesome 🙂</div>
+    <div id="msg7" class="message">Happy Valentine's Day ❤️</div>
+</div>
+
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function showMessage(num) {
+    document.querySelectorAll('.message').forEach(m => m.style.display = 'none');
+    document.getElementById('msg' + num).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
